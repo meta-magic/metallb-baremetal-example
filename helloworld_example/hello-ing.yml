@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-ing
+  namespace: helloworld
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: \"false\"  
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-svc
+          servicePort: 80
