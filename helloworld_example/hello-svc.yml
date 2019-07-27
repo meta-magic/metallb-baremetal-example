@@ -8,8 +8,6 @@ metadata:
 spec:
   selector:
     app: hello
-  type: NodePort
   ports:
    - port: 80
-     nodePort: 31100
      targetPort: 80
