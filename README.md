@@ -73,9 +73,11 @@ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal
 
 kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-svc.yml
 
-
+![Screenshot from 2019-07-30 11-29-11](https://user-images.githubusercontent.com/30106168/62110568-57f11280-b2cc-11e9-961a-e3d51014d268.png)
 
 4) create a  ingress 
+kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-ing.yml
+
 
 
 
