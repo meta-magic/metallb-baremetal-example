@@ -87,4 +87,5 @@ kubectl get ing -n helloworld
 
 
 
+![Screenshot from 2019-07-30 13-33-04](https://user-images.githubusercontent.com/30106168/62114793-f97c6200-b2d4-11e9-9e5a-23d00eab4790.png)
 
