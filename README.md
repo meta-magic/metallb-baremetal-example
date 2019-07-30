@@ -78,6 +78,12 @@ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal
 4) create a  ingress 
 kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-ing.yml
 
+## verify the ip of ingress
+kubectl get ing -n helloworld
+
+![Screenshot from 2019-07-30 11-29-45](https://user-images.githubusercontent.com/30106168/62110702-a2728f00-b2cc-11e9-8298-1d75ced33da4.png)
+
+## Access url http://192.168.2.8 (ip of ingress)
 
 
 
