@@ -43,6 +43,36 @@ This will deploy MetalLB to your cluster, under the metallb-system namespace.
 
 verify the speaker and controller are running state:
 
+![Screenshot from 2019-07-30 11-12-40](https://user-images.githubusercontent.com/30106168/62108461-b962b280-b2c7-11e9-97fc-5ace03d32aef.png)
+
+### NOW add configMap
+ MetalLB’s components  will remain idle until you define and deploy a configmap.(for demo we will be using layer2 configuration)
+ 
+kubectl apply -f  https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/metallb_install/configMap_example.yml
+
+### Installing Nginx Ingress Controller
+
+1) kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/nginx-ingress/nginx_controller_install.yml
+
+
+2)kubectl create https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/nginx-ingress/nginx_ingress_svc.yml
+
+### Creating demo of hello-world
+1) create a namespace  helloworld
+
+kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-world-ns.yml
+
+2) create a pod 
+
+kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-pod.yml
+
+3) create a cluster ip svc 
+
+kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-svc.yml
+
+
+
+4) create a  ingress 
 
 
 
