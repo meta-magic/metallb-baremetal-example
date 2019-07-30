@@ -39,6 +39,10 @@ This will deploy MetalLB to your cluster, under the metallb-system namespace.
 
 3)Service accounts for the controller and speaker, along with the RBAC permissions that the components need to function.
 
+![Screenshot from 2019-07-30 11-12-16](https://user-images.githubusercontent.com/30106168/62108245-35102f80-b2c7-11e9-996e-4542a9d6d607.png)
+
+verify the speaker and controller are running state:
+
 
 
 
