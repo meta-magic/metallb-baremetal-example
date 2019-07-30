@@ -57,6 +57,9 @@ kubectl apply -f  https://raw.githubusercontent.com/meta-magic/metallb-baremetal
 
 2)kubectl create https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/nginx-ingress/nginx_ingress_svc.yml
 
+![Screenshot from 2019-07-30 11-20-44](https://user-images.githubusercontent.com/30106168/62110414-f6c93f00-b2cb-11e9-8cea-310aff24eb37.png)
+
+
 ### Creating demo of hello-world
 1) create a namespace  helloworld
 
