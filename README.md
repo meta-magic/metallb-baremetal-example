@@ -53,11 +53,11 @@ This will deploy MetalLB to your cluster, under the metallb-system namespace.
 
 ![Screenshot from 2019-07-30 11-12-16](https://user-images.githubusercontent.com/30106168/62108245-35102f80-b2c7-11e9-996e-4542a9d6d607.png)
 
-verify the speaker and controller are running state:
+### 3.2 Verify the speaker and controller are running state:
 
 ![Screenshot from 2019-07-30 11-12-40](https://user-images.githubusercontent.com/30106168/62108461-b962b280-b2c7-11e9-97fc-5ace03d32aef.png)
 
-### 3.2 Add configMap
+### 3.3 Add configMap
 
 MetalLB’s components  will remain idle until you define and deploy a configmap.(for demo we will be using layer2 configuration)
  
@@ -91,12 +91,12 @@ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal
 4) create a  ingress 
 kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-ing.yml
 
-## 6. Verify the ip of ingress
+## 6. Verify the IP of ingress
 kubectl get ing -n helloworld
 
 ![Screenshot from 2019-07-30 11-29-45](https://user-images.githubusercontent.com/30106168/62110702-a2728f00-b2cc-11e9-8298-1d75ced33da4.png)
 
-## 7. Access url http://192.168.2.8 (ip of ingress)
+## 7. Access url http://192.168.2.8 (IP of ingress)
 
 
 
