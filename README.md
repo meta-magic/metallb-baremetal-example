@@ -86,19 +86,19 @@ $ kubectl create https://raw.githubusercontent.com/meta-magic/metallb-baremetal-
 
 ## 5. Create demo of hello-world
 
-1) create a namespace  helloworld
+1) Create a namespace  helloworld
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-world-ns.yml
 ```
 
-2) create a pod 
+2) Create a Pod (In production always use Deployment)
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-pod.yml
 ```
 
-3) create a cluster ip svc 
+3) Create Service (with default cluster IP)
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-svc.yml
@@ -106,7 +106,7 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 
 ![Screenshot from 2019-07-30 11-29-11](https://user-images.githubusercontent.com/30106168/62110568-57f11280-b2cc-11e9-961a-e3d51014d268.png)
 
-4) create a  ingress 
+4) Expose the Service by creating an Ingress 
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-ing.yml
