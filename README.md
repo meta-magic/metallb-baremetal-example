@@ -4,7 +4,7 @@ Kubernetes implementation in the cloud services like Amazon (EKS), Google (GKE) 
 
 All these facilities will NOT available if you install Kubernetes Clusters On-Premise if the infrastructure team uses an IaaS (Infrastructure as a Service) and builds the Kubnernetes cluster on bare metal. 
 
-This section is will focus on how to deploy an Ingress enabled Load Balancer (at the Gateway) to handing the incoming traffic to the cluster. 
+This section will focus on how to deploy an Ingress enabled Load Balancer (at the Gateway) to handing the incoming traffic to the cluster. 
 
 Bare metal cluster operators have left with two lesser tools to bring user traffic into their clusters, “NodePort” and “externalIPs” services. Both of these options have significant downsides for production use, which makes bare metal clusters second class citizens in the Kubernetes ecosystem. (From metallb web site).
 
