@@ -25,7 +25,6 @@ spec:
         zone: prod
         managed-by: m2
     spec:
-      serviceAccountName: productms-sa
       containers:
         - name: productms-ctr
           image: metamagicglobal/productmswithoutdb
