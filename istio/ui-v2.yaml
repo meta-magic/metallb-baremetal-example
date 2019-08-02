@@ -25,7 +25,6 @@ spec:
         zone: prod
         managed-by: m2
     spec:
-      serviceAccountName: ui-sa
       containers:
         - name: k8uiworkshop-ctr
           image: metamagicglobal/k8uiworkshop:v1.2
