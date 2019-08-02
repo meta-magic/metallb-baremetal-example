@@ -144,11 +144,24 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shoppingportal-gw.yaml
 ```
+## verify 
+ ```bash
+$ kubectl get pods,svc,vs,dr,gateway -n shoppingportal
+```
 
-![Screenshot from 2019-07-30 11-29-45](https://user-images.githubusercontent.com/30106168/62110702-a2728f00-b2cc-11e9-8298-1d75ced33da4.png)
+![Screenshot from 2019-08-02 11-51-26](https://user-images.githubusercontent.com/30106168/62351383-ef4fa300-b522-11e9-9ef3-312065330e21.png)
 
-## 7. Access url http://192.168.2.8 (IP of ingress)
+## 7. GET the istio-ingress gateway ip address  
+
+```bash
+$ kubectl get svc -n istio-system
+```
+![Screenshot from 2019-08-02 11-57-09](https://user-images.githubusercontent.com/30106168/62351598-99c7c600-b523-11e9-9250-92a5d8e8cdc8.png) 
+
+## 8. Access url http://192.168.2.7/ui/ (IP of ingress)
 
 
-![Screenshot from 2019-07-30 13-33-04](https://user-images.githubusercontent.com/30106168/62114793-f97c6200-b2d4-11e9-9e5a-23d00eab4790.png)
+![Screenshot from 2019-08-02 11-43-42](https://user-images.githubusercontent.com/30106168/62351622-ab10d280-b523-11e9-94ba-2162558c6936.png)
+
+
 
