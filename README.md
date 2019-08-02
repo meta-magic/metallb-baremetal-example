@@ -1,4 +1,7 @@
-# Metallb ON-PREMISE with Cilium and Nginx ingress controller 
+# Metallb ON-PREMISE with Cilium  
+
+## - Using Nginx ingress controller 
+## - Using [Istio Service Mesh](https://github.com/meta-magic/metallb-baremetal-example/tree/master/istio) - Recommended
 
 Kubernetes implementation in the cloud services like Amazon (EKS), Google (GKE) or Azure (AKS) provides out of the box capabilities like Multi-Master High Availability, Ingress Load Balancer (to handle in the traffic from the internet), Network Storage, and launching worker nodes with different hardware requirements. 
 
@@ -10,6 +13,9 @@ Bare metal cluster operators have left with two lesser tools to bring user traff
 
 MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols.
 
+Following section focuses Metal LB with Nginx Ingress Controller. If you want Metal LB with Istio (with Istio Ingress Controller) then [click here > Istio Service Mesh](https://github.com/meta-magic/metallb-baremetal-example/tree/master/istio). Recommended option is Metal LB with Istio. 
+
+Under Nginx we have a simple hello world example while under Istio we have a much more powerful example to demonstrate. 
 
 ## MetalLB requires the following to function:
 
@@ -125,3 +131,8 @@ $ kubectl get ing -n helloworld
 
 ![Screenshot from 2019-07-30 13-33-04](https://user-images.githubusercontent.com/30106168/62114793-f97c6200-b2d4-11e9-9e5a-23d00eab4790.png)
 
+## License
+
+Licensed under the [Apache 2.0](http://www.amexio.org/metamagic-showcase/license.html)  License. [ by [CC By 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+**Enjoy!**
