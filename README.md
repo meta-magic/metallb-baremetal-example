@@ -13,9 +13,9 @@ Bare metal cluster operators have left with two lesser tools to bring user traff
 
 MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols.
 
-Following section focuses Metal LB with Nginx Ingress Controller. If you want Metal LB with Istio (with Istio Ingress Controller) then [click here > Istio Service Mesh](https://github.com/meta-magic/metallb-baremetal-example/tree/master/istio). Recommended option is Metal LB with Istio. 
+THe following section focuses Metal LB with Nginx Ingress Controller. If you want Metal LB with Istio (with Istio Ingress Controller) then [click here > Istio Service Mesh](https://github.com/meta-magic/metallb-baremetal-example/tree/master/istio). The recommended option is Metal LB with Istio. 
 
-Under Nginx we have a simple hello world example while under Istio we have a much more powerful example to demonstrate. 
+Under Nginx, we have a simple hello world example while under Istio we have a much more powerful example to demonstrate. 
 
 ## MetalLB requires the following to function:
 
