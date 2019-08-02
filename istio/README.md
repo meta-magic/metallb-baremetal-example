@@ -98,33 +98,51 @@ $ kubectl apply -f install/kubernetes/istio-demo.yaml
 1) Create a namespace  helloworld
 
 ```bash
-$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-world-ns.yml
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shopping-ns.yaml
 ```
 
-2) Create a Pod (In production always use Deployment)
+2) Create a deployment,svc,dr of product service
 
 ```bash
-$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-pod.yml
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/product-v1.yaml
+```
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/product-service.yaml
+```
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/product-destination.yaml
+```
+3)  Create a deployment,svc of productreview service
+
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/productreview-v1.yaml
+```
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/productreview-service.yaml
 ```
 
-3) Create Service (with default cluster IP)
+
+4) Create a deployment,svc,dr of ui service
 
 ```bash
-$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-svc.yml
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/ui-v1.yaml
 ```
-
-![Screenshot from 2019-07-30 11-29-11](https://user-images.githubusercontent.com/30106168/62110568-57f11280-b2cc-11e9-961a-e3d51014d268.png)
-
-4) Expose the Service by creating an Ingress 
-
 ```bash
-$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/helloworld_example/hello-ing.yml
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/ui-v2.yaml
 ```
-
-## 6. Verify the IP of ingress
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/ui-service.yaml
+```
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/ui-destination.yaml
+```
+## 6. Create vs and gateway
 
 ```bash
-$ kubectl get ing -n helloworld
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shoppingportal-virtualservice.yaml
+```
+```bash
+$ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shoppingportal-gw.yaml
 ```
 
 ![Screenshot from 2019-07-30 11-29-45](https://user-images.githubusercontent.com/30106168/62110702-a2728f00-b2cc-11e9-8298-1d75ced33da4.png)
