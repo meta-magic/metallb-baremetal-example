@@ -1,4 +1,4 @@
-# Metallb ON-PREMISE with Cilium and Nginx ingress controller 
+# Metallb ON-PREMISE with Cilium and Istio ingress controller 
 
 Kubernetes implementation in the cloud services like Amazon (EKS), Google (GKE) or Azure (AKS) provides out of the box capabilities like Multi-Master High Availability, Ingress Load Balancer (to handle in the traffic from the internet), Network Storage, and launching worker nodes with different hardware requirements. 
 
@@ -67,25 +67,29 @@ MetalLB’s components  will remain idle until you define and deploy a configmap
 $ kubectl apply -f  https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/metallb_install/configMap_example.yml
 ```
 
-## 4. Downloading ISTIO
+## 4. Install ISTIO
 
+### 4.1 Download Istio
+
+```bash
   curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.2.2 sh -
+```
 
-  Move to the Istio package directory. For example, if the package is istio-1.2.2:
+Move to the Istio package directory. For example, if the package is istio-1.2.2:
 
+```bash
 cd istio-1.2.2/
+```
 
 
-
-
-### 4.1  Install all the Istio Custom Resource Definitions (CRDs)
+### 4.2  Install all the Istio Custom Resource Definitions (CRDs)
 
 ```bash
 $ for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
 
 ```
 
-### 4.2 Create the demo variant
+### 4.3 Create the demo variant
 
 ```bash
 $ kubectl apply -f install/kubernetes/istio-demo.yaml
@@ -93,15 +97,15 @@ $ kubectl apply -f install/kubernetes/istio-demo.yaml
 ```
 
 
-## 5. Create demo of shoppingportal
+## 5. Deploy Shoppingportal Demo App with 3 services - UI Service, Product Service & Product Review Service
 
-1) Create a namespace  helloworld
+### 5.1 Create a namespace shoppingportal
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shopping-ns.yaml
 ```
 
-2) Create a deployment,svc,dr of product service
+### 5.2 Create Deployment, Service, Deployment Rule of Product Service
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/product-v1.yaml
@@ -112,7 +116,7 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/product-destination.yaml
 ```
-3)  Create a deployment,svc of productreview service
+### 5.3  Create Deployment, Service of ProductReview Service
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/productreview-v1.yaml
@@ -121,8 +125,7 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/productreview-service.yaml
 ```
 
-
-4) Create a deployment,svc,dr of ui service
+### 5.4 Create Deployment, Service, Deployment Rule of UII service
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/ui-v1.yaml
@@ -136,7 +139,7 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/ui-destination.yaml
 ```
-## 6. Create vs and gateway
+## 5.5 Create Virtual Service and Gateway
 
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shoppingportal-virtualservice.yaml
@@ -144,7 +147,8 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shoppingportal-gw.yaml
 ```
-## verify 
+## 5.6 Verify Shopping Portal Installation
+
  ```bash
 $ kubectl get pods,svc,vs,dr,gateway -n shoppingportal
 ```
