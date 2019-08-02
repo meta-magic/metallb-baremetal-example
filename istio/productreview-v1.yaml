@@ -25,7 +25,6 @@ spec:
         zone: prod
         managed-by: m2
     spec:
-      serviceAccountName: productreviewms-sa   
       containers:
         - name: productreview-ctr
           image: metamagicglobal/productreviewms
