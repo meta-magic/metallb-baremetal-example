@@ -147,7 +147,7 @@ $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremet
 ```bash
 $ kubectl create -f https://raw.githubusercontent.com/meta-magic/metallb-baremetal-example/master/istio/shoppingportal-gw.yaml
 ```
-## 5.6 Verify Shopping Portal Installation
+## 6 Verify Shopping Portal Installation
 
  ```bash
 $ kubectl get pods,svc,vs,dr,gateway -n shoppingportal
