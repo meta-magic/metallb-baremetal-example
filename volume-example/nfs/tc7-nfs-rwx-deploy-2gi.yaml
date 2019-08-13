@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: tc7-nfs-rwx-deploy-2gi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      desire2d.io/name: tc7-nfs-rwx-pod
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        desire2d.io/name: tc7-nfs-rwx-pod
+        desire2d.io/version: "1.0.0"
+        desire2d.io/release: stable
+        desire2d.io/tier: be
+        desire2d.io/zone: prod
+        desire2d.io/managed-by: m2
+    spec:
+      volumes:
+        - name: nfs-tc7-rwx-2gi
+          persistentVolumeClaim:
+           # Local Storage Claim
+           claimName: pvc-nfs-rwx-2gb-disk
+      containers:
+        - name: omega-dyn-ctr
+          image: metamagic/oshell
+          env:
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          volumeMounts:
+          # Mount omega-volume-local from 
+          # persistentVolumeClaim
+            - mountPath: "/home/data"
+              name: nfs-tc7-rwx-2gi

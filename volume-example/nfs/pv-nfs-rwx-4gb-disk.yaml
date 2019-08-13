@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-nfs-rwx-4gb-disk
+spec:
+  capacity:
+    storage: 4Gi
+  accessModes:
+    - ReadWriteMany
+  # Filesystem or Block (v1.13) Default = Filesystem
+  volumeMode: Filesystem 
+  nfs:
+    server: 192.168.2.13
+    path: "/var/nfs/general"
