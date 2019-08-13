@@ -72,16 +72,28 @@ cd external-storage/nfs-client
 
 example: 
            - name: NFS_SERVER 
-             value: <<IP_OF_YOUR_NFS_SERVER>>  
+            
+            value: <<IP_OF_YOUR_NFS_SERVER>>  
+             
+             
            - name: NFS_PATH 
-             value: <<PATH_TO_NFS_SHARED_FOLDER>>
+            
+            value: <<PATH_TO_NFS_SHARED_FOLDER>>
+     
      volumes: 
-       - name: nfs-client-root 
-         nfs: 
-           server: <<IP_OF_YOUR_NFS_SERVER>>
-           path: <<PATH_TO_NFS_SHARED_FOLDER>>
+     
+     - name: nfs-client-root 
+     
+     nfs: 
+     
+     server: <<IP_OF_YOUR_NFS_SERVER>>
+          
+          path: <<PATH_TO_NFS_SHARED_FOLDER>>
 
 3) now, deploy 
+
 kubectl create -f deploy/rbac.yaml
+
 kubectl create -f deploy/class.yaml
+
 kubectl create -f deploy/deployment.yaml
