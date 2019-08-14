@@ -11,4 +11,4 @@ spec:
   volumeMode: Filesystem 
   nfs:
     server: 192.168.2.13
-    path: "/var/nfs/general"
+    path: "/var/nfs-server/test"
