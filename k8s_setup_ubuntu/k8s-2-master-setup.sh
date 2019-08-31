@@ -1,7 +1,7 @@
 #!/bin/bash
 echo " enter the name of the Container Network Driver Name [calico | flannel | cilium | other]"
 read podntwk
-podnetwork="--pod-network-cidr=10.217.0.0/16"
+podnetwork=""
 if [ "$podntwki" == "calico" ]; then
 	podnetwork="--pod-network-cidr=192.168.0.0/16"
 elif  [ "$podntwk" == "flannel" ]; then
